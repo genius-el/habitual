@@ -1,0 +1,151 @@
+/* Page Styling */
+* {
+  /* outline: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --primary-color: black;
+  --secondary-color: orange;
+  --text-color: white;
+  --gap: 16px;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+
+/* ==================================================================================================================================
+   MOBILE VIEW - DEFAULT
+   ================================================================================================================================== */
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+/* ==================================================== PAGE LAYOUT ============================================================= */
+main {
+    width: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.8);
+    border-radius: 9px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* stacked on mobile */
+}
+
+.habitGrouping,
+.habits-list {
+    padding: 2.4rem;  /* lighter padding on mobile*/
+    display: flex;
+    flex-direction: column;
+    transition: all 0.75s;
+    gap: var(--gap);
+    border: 1px solid var(--secondary-color);
+}
+
+input {
+    width: 70%;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    margin-right: 10px;
+}
+
+button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.habitGrouping h1 {
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: var(--gap);
+    color: var(--secondary-color);
+}
+
+.habits-list h1 {
+    margin-top: 22px;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+.habits-list ul {
+    list-style: none;
+}
+
+.habits-list li {
+    background: #1a1a1a;
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+.delete-btn {
+    background: #ff4444;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ===========================================================================================
+    DESKTOP VIEW - SUPPORT FOR 600PX AND ABOVE
+    ========================================================================================== */
+@media (min-width: 600px) {
+
+    body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    /* ========================================================
+    DESKTOP PAGE LAYOUT                                                
+    ======================================================== */
+    main {
+        width: 100rem;
+        height: 60rem;
+        flex-direction: row; /* side by side on desktop */
+        border: 2px solid var(--secondary-color);
+    }
+
+    .habitGrouping, .habits-list {
+        flex: 50%;
+        padding: 4rem;   /* more breathing room on desktop */
+        min-height: 100%;
+    }
+
+    .habitGrouping {
+        border-right: 1px solid var(--text-color);
+        border-bottom: none;
+    }
+
+    .habits-list {
+        border: none;   /* main border comes from <main> on desktop */
+        padding: 20px;
+    }
+}
