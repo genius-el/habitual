@@ -29,28 +29,33 @@ urgentAndImportantBtn.addEventListener('click', function() {
     const urgentAndImportantInputValue = urgentAndImportantInput.value;
     console.log(urgentAndImportantInputValue);
 
-    habit = {
-        id: Date.now(),
-        task: urgentAndImportantInputValue,
-        category: 'is Urgent and Important'
-    };
-    habits.push(habit);
-    console.log(habits);
-    habitDisplay();
+    if (urgentAndImportantInputValue) {
+        habit = {
+            id: Date.now(),
+            task: urgentAndImportantInputValue,
+            category: 'is Urgent and Important'
+        };
+        habits.push(habit);
+        console.log(habits);
+        habitDisplay();
+    }
 });
 
 importantBtn.addEventListener('click', function() {
     const importantInputValue = importantInput.value;
     console.log(importantInputValue);
 
-    habit = {
-        id: Date.now(),
-        task: importantInputValue,
-        category: 'is Important'
+    if (importantInputValue) {
+            habit = {
+                id: Date.now(),
+                task: importantInputValue,
+                category: 'is Important'
+            }
+            habits.push(habit);
+            console.log(habits);
+            habitDisplay();
     }
-    habits.push(habit);
-    console.log(habits);
-    habitDisplay();
+
 
 });
 
@@ -58,14 +63,16 @@ urgentBtn.addEventListener('click', function() {
     const urgentInputValue = urgentInput.value;
     console.log(urgentInputValue);
 
-    habit = {
-        id: Date.now(),
-        task: urgentInputValue,
-        category: 'is Urgent',
+    if (urgentInputValue) {
+            habit = {
+                id: Date.now(),
+                task: urgentInputValue,
+                category: 'is Urgent',
+            }
+            habits.push(habit);
+            console.log(habits);
+            habitDisplay();
     }
-    habits.push(habit);
-    console.log(habits);
-    habitDisplay();
 
 });
 
@@ -73,14 +80,17 @@ nilBtn.addEventListener('click', function() {
     const nilInputValue = nilInput.value;
     console.log(nilInputValue);
 
-    habit = {
-        id: Date.now(),
-        task: nilInputValue,
-        category: 'is Not Urgent and Not Important'
+    if (nilInputValue) {
+            habit = {
+                id: Date.now(),
+                task: nilInputValue,
+                category: 'is Not Urgent and Not Important'
+            }
+            habits.push(habit);
+            console.log(habits);
+            habitDisplay();
     }
-    habits.push(habit);
-    console.log(habits);
-    habitDisplay();
+
 });
 
 // HabitsDisplay Function
@@ -89,6 +99,7 @@ const habitDisplay = function() {
 
     habits.forEach((h) => {
         const li = document.createElement('li');
+        li.style.marginTop = '-5px';
         li.innerHTML = `
         <span>${h.task} ${h.category}</span>
         <button class="delete-btn" onclick="habitDelete(${h.id})">Delete</button>`
