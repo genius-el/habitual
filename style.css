@@ -87,6 +87,7 @@ h1 {
     font-size: 3.2rem;
     margin-bottom: var(--gap);
     color: var(--secondary-color);
+    text-align: center;
 }
 
 .clear-all-btn {
