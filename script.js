@@ -17,7 +17,20 @@ const nilBtn = document.getElementById('nilBtn');
 const habitsList = document.getElementById('habits');
 
 // Other Variables
-let habits = [];
+// let habits = [];
+// Replacing the let habits = [] to allow for user data storage
+// Using Local Storage to read user data if it already exists
+
+let habits;
+const storedHabits = localStorage.getItem("habits");
+
+if (storedHabits !== null) {
+    habits = JSON.parse(storedHabits);
+} else {
+    habits = [];
+}
+
+
 let habit = {
     id: '',
     task: '',
@@ -39,6 +52,8 @@ urgentAndImportantBtn.addEventListener('click', function() {
         console.log(habits);
         habitDisplay();
     }
+    // Saving user data 
+    localStorage.setItem("habits", JSON.stringify(habits));
 });
 
 importantBtn.addEventListener('click', function() {
@@ -95,6 +110,8 @@ nilBtn.addEventListener('click', function() {
 
 // HabitsDisplay Function
 const habitDisplay = function() {
+    // saving user data to local storage
+    localStorage.setItem("habits", JSON.stringify(habits)); // save first
     habitsList.innerHTML = "";
 
     habits.forEach((h) => {
